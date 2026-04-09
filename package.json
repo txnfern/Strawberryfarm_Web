@@ -1,0 +1,24 @@
+{
+  "name": "strawberryfarm_web",
+  "version": "1.0.0",
+  "description": "A modern full-stack web application for managing a strawberry farm system. Built with **Vite + React + Tailwind CSS** and powered by **Node.js + MongoDB**.",
+  "main": "eslint.config.js",
+  "scripts": {
+    "dev": "concurrently \"npm run dev --prefix frontend\" \"node backend/server.js\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/txnfern/strawberryfarm_web.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/txnfern/strawberryfarm_web/issues"
+  },
+  "homepage": "https://github.com/txnfern/strawberryfarm_web#readme",
+  "dependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
