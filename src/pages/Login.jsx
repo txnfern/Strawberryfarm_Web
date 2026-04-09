@@ -9,14 +9,24 @@ const Login = () => {
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("https://strawberryfarm-web.vercel.app/Login", {
+      const response = await fetch("https://strawberryfarm-web.vercel.app/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
       });
       const data = await response.json();
-      if (response.ok) { setMessage(data.message); setError(''); }
-      else { setMessage(''); setError(data.error); }
+
+      if (response.ok) {
+        // ✅ เพิ่มตรงนี้
+        localStorage.setItem('token', data.token);
+        localStorage.setItem('username', data.username);
+        setMessage(data.message);
+        window.location.href = '/';   // redirect ไปหน้า Home
+      } else {
+        setMessage('');
+        setError(data.error);
+      }
+
     } catch {
       setError('❌ เกิดข้อผิดพลาดในการเข้าสู่ระบบ');
     }
